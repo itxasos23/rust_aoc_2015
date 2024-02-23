@@ -2,6 +2,7 @@ use std::env;
 
 mod day_01;
 mod day_02;
+mod day_03;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -10,7 +11,7 @@ fn main() {
         // No arguments
         1 => {
             // TODO - If there are no arguments, run all days.
-            println!("Not supported.")
+            println!("Run without arguments not supported");
         }
         2 => {
             let number: i32 = match args[1].parse() {
@@ -25,6 +26,7 @@ fn main() {
             match number {
                 1 => day_01::solve(),
                 2 => day_02::solve(),
+                3 => day_03::solve(),
                 _ => eprintln!("Invalid argument."),
             }
         }
