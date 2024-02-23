@@ -36,8 +36,10 @@ fn solve_1() {
     let mut sum = 0;
 
     for box_dimensions in boxes_dimensions {
-        let [x, y, z] = box_dimensions.as_slice() else {panic!("Bad format for box_dimensions")};
-        let sides: Vec<usize> = vec![x*y, x*z, y*z];
+        let [x, y, z] = box_dimensions.as_slice() else {
+            panic!("Bad format for box_dimensions")
+        };
+        let sides: Vec<usize> = vec![x * y, x * z, y * z];
         let extra_side = sides
             .iter()
             .min()
@@ -55,14 +57,16 @@ fn solve_2() {
 
     let mut sum = 0;
     for box_dimensions in boxes_dimensions {
-        let [x, y, z] = box_dimensions.as_slice() else {panic!("Bad format for box_dimensions")};
-        let perimeters: Vec<usize> = vec![2*x+2*y, 2*x+2*z, 2*y+2*z];
-        let ribbon = perimeters 
+        let [x, y, z] = box_dimensions.as_slice() else {
+            panic!("Bad format for box_dimensions")
+        };
+        let perimeters: Vec<usize> = vec![2 * x + 2 * y, 2 * x + 2 * z, 2 * y + 2 * z];
+        let ribbon = perimeters
             .iter()
             .min()
             .expect("Can't calculate minimum of box_dimensions.");
-        let volume = x * y * z; 
-        let total_ribbon = ribbon + volume; 
+        let volume = x * y * z;
+        let total_ribbon = ribbon + volume;
         // println!("Total paper needed: {}", total_paper);
         sum += total_ribbon;
     }
